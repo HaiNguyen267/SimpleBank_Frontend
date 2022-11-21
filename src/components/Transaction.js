@@ -1,7 +1,6 @@
 import TransactionDetailPage from "../pages/TransactionDetailPage"
 import Modal from "../components/Modal"
-import { useState, useContext } from 'react'
-import { ModalContext } from './ModalContext'
+import { useState } from 'react'
 
 export default function Transaction(props) {
     const [openModal, setOpenModal] = useState(false)

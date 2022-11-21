@@ -1,6 +1,5 @@
 import { useContext, useState } from "react"
 import { UserContext } from "./UserContext"
-import { Link } from 'react-router-dom'
 import Dropdown from "../components/Dropdown"
 function Profile() {
     const [user, setUser] = useContext(UserContext)

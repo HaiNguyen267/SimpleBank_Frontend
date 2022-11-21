@@ -1,9 +1,7 @@
-import { Link } from 'react-router-dom'
-import { useContext } from 'react'
+
 import Modal from './Modal'
 import Message from '../pages/Message'
 import { useState } from 'react'
-import { ModalContext } from './ModalContext'
 import { MessageContext } from '../context/MessageContext'
 function Action(props) {
     const [openModal, setOpenModal] = useState(false)

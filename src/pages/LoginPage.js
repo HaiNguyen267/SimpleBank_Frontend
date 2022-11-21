@@ -1,10 +1,9 @@
 
-import { useEffect, useState, useContext } from 'react'
+import { useState, useContext } from 'react'
 import { useGoogleLogin } from '@react-oauth/google';
 import { Link } from 'react-router-dom'
 import { UserContext } from '../components/UserContext';
 import Modal from '../components/Modal';
-import { ModalContext } from '../components/ModalContext';
 import { useNavigate } from "react-router-dom";
 import Message from "./Message";
 

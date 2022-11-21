@@ -1,6 +1,5 @@
 import { useContext, useEffect, useState } from "react"
 import { UserContext } from '../components/UserContext'
-import Transaction from "../components/Transaction"
 import UserInfo from "../components/UserInfo"
 import PromtLogin from "../components/PromtLogin"
 import { useNavigate } from 'react-router-dom'
