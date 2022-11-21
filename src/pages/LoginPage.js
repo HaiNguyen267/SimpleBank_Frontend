@@ -12,7 +12,7 @@ import AlreadyLoggedInMessage from '../components/AlreadyLoggedInMessage';
 import axios from 'axios'
 
 export default function LoginPage() {
-    const BACKEND_URL = 'http://localhost:8080'
+    const BACKEND_URL = 'https://simplebankbackend-production.up.railway.app'
     const navigate = useNavigate();
     const [user, setUser, jwtToken, setJwtToken] = useContext(UserContext)
     const [message, setMessage] = useState("")
@@ -96,7 +96,6 @@ export default function LoginPage() {
         function Oauth2Login() {
             const handleOauth2Login = useGoogleLogin({
                 onSuccess: async (tokenResponse) => {
-                    console.log(tokenResponse);
                     const response = await axios.post(`${BACKEND_URL}/oauthlogin`, {
                         accessToken: tokenResponse.access_token
                     })
@@ -137,7 +136,6 @@ export default function LoginPage() {
         )
     }
 
-    console.log("user is authenticated: ", user.isAuthenticated);
     return (
         !user.isAuthenticated ?
         <>

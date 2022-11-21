@@ -7,18 +7,15 @@ import Homepage from './pages/Homepage';
 import { UserContext } from './components/UserContext'
 import { Routes, Route, useNavigate } from 'react-router-dom'
 import { useState, useEffect } from 'react'
-import TransactionDetailPage from './pages/TransactionDetailPage';
 import axios from 'axios';
 
 // testing
-import Transaction from './components/Transaction';
 import UserProfilePage from './pages/UserProfilePage';
 import RegistrationConfirmPage from './pages/RegistrationConfirmPage';
-import { loadGapiInsideDOM } from 'gapi-script';
 
 
 function App() {
-  const BACKEND_URL = 'http://localhost:8080'
+  const BACKEND_URL = 'https://simplebankbackend-production.up.railway.app'
   const CLIENT_ID = '1041545973974-6fhlfpt6pv44fukk40s34qh86j5pj6uk.apps.googleusercontent.com'
   const [jwtToken, setJwtToken] = useState(null)
   const navigate = useNavigate()
@@ -33,7 +30,6 @@ function App() {
 
 
   useEffect(() => {
-    console.log("Performing auto login");
     if (localStorage.hasOwnProperty('jwtToken')) {
       const data = JSON.parse(localStorage.getItem("jwtToken"))
       if (data.jwtToken) {
@@ -44,7 +40,6 @@ function App() {
 
   useEffect( () => {
     const fecthUserInfo = async () => {
-      console.log("fetching user");
       const data = {
         jwtToken: jwtToken
       }
@@ -78,7 +73,6 @@ function App() {
     fecthUserInfo()
     const data = JSON.stringify({ jwtToken: jwtToken })
     localStorage.setItem('jwtToken', data)
-    console.log("storing jwtToken done");
 
   }, [jwtToken])
 

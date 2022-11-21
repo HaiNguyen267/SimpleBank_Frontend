@@ -9,7 +9,7 @@ import PaginationItems from "./PaginattionItems"
 export default function UserProfilePage() {
     const navigate = useNavigate()
     const [user, setUser, jwtToken, setJwtToken] = useContext(UserContext)
-    const BACKEND_URL = 'http://localhost:8080'
+    const BACKEND_URL = 'https://simplebankbackend-production.up.railway.app'
 
 
     function UserPage() {
@@ -25,8 +25,7 @@ export default function UserProfilePage() {
                 }
 
                 const response = await axios.get(`${BACKEND_URL}/transactions`, options)
-                console.log("TRANSFER RESPONSE: ");
-                console.log(response.data);
+
                 setTransactions(response.data)
             }
 

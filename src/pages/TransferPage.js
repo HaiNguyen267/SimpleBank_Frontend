@@ -15,7 +15,7 @@ export default function TransferPage() {
     const [receiverAccountName, setReceiverAccountName] = useState('Unknown')
     const [amount, setAmount] = useState(0)
     const [transactionMessage, setTransactionMessage] = useState('')
-    const BACKEND_URL = 'http://localhost:8080'
+    const BACKEND_URL = 'https://simplebankbackend-production.up.railway.app'
 
     const ReceiverNameElement = () => {
         if (receiverAccountNo.length < 10) return null
@@ -70,7 +70,6 @@ export default function TransferPage() {
             const response = await axios.post(`${BACKEND_URL}/accountname`, body)
 
             if (response.data.success) {
-                console.log("unknown");
                 setReceiverAccountName(response.data.accountName)
             } else {
                 setReceiverAccountName("Unknown")

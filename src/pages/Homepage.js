@@ -11,12 +11,7 @@ export default function Homepage() {
     console.log("in the home page");
     console.log(user);
 
-    // name: userInfo.fullName,
-    // accountNo: userInfo.accountNo,
-    // enabled: userInfo.isEnabled,
-    // balance: userInfo.balance,
-    // profileImage: userInfo.profileImage,
-    // isAuthenticated: true
+
     function Page() {
         return (
             <>

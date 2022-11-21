@@ -5,9 +5,7 @@ export default function Dropdown(props) {
     const navigate = useNavigate()
     const [user, setUser, jwtToken, setJwtToken] = useContext(UserContext)
     const styleName = props.display ? "Dropdown-display" : "Dropdown-hidden"
-    console.log("stylename:");
-    console.log(styleName);
-    
+
     function setUserToAnonymous() {
         setJwtToken(null)
         navigate('/')

@@ -10,7 +10,7 @@ import { useNavigate } from 'react-router-dom'
 function RegisterForm() {
     const navigate = useNavigate()
     const [user] = useContext(UserContext)
-    const BACKEND_URL = 'http://localhost:8080'
+    const BACKEND_URL = 'https://simplebankbackend-production.up.railway.app'
     const [openModal, setOpenModal] = useState(false)
     const [message, setMessage] = useState("")
     const [success, setSuccess] = useState(false)
@@ -30,7 +30,6 @@ function RegisterForm() {
             }
 
             const response = await axios.post(`${BACKEND_URL}/signup`, data)
-            console.log(response.data);
 
             if (response.data.success) {
                 navigate('/confirm')
@@ -45,7 +44,6 @@ function RegisterForm() {
         function validateAlLFields() {
             if (!firstName) {
                 setMessage("Invalid firstname");
-                console.log("here");
                 return false;
             }
 
