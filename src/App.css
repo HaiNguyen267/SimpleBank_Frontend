@@ -3,12 +3,13 @@
 * {
   padding: 0;
   margin: 0;
+  transition: all 0.3s ease-in-out;
+
 }
 .App {
   text-align: center;
   width: 100%;
   /* height: 100vh; */
-  border: 1px solid black;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -27,6 +28,39 @@
   justify-content: space-between;
   padding: 0 20px;
 }
+
+.Dropdown-display {
+  position: absolute;
+  background: white;
+  top: 30px;
+  padding: 0 10px;
+  right: 0px;
+  /* right: 0px; */
+  color: black;
+  width: 90px;
+  box-shadow: 3px 3px 10px rgb(131, 130, 130);
+  border-radius: 10px;
+}
+
+
+.Dropdown-hidden {
+  display: none;
+}
+
+.dropdown-item {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  margin: 5px 0;
+  padding: 5px 10px;
+  /* border-bottom: 1px solid black; */
+  border-radius: 6px;
+  color: black;
+}
+
+.dropdown-item:hover {
+  background: rgb(191, 191, 191);
+}
+
+
 .AppLogo {
   display: flex;
   /* background: lightblue; */
@@ -53,66 +87,83 @@
 }
 
 .Balance {
+  margin: 10px 0 20px 0;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
-.Profile {
+.Profile{
+  position: absolute;
+  top: 10px;
+  right: 20px;
   display: flex;
   align-items: center;
   color: white;
+  cursor: pointer;
 }
 
-#coin-icon,
-#profile-img {
+.coin-icon,
+.profile-img {
   width: 30px;
+  border-radius: 50%;
 }
 
-#balance-number,
+.balance-number,
 #profile-name {
   font-size: 1em;
   font-family: 'Oswald', sans-serif;
   margin: 0 10px;
 }
 
-.Functionalities {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;  
-  margin: 100px 0;
-  border: 2px solid pink;
+.ActionList {
+  margin: 20px 0;
 }
 
-.Functionality {
+.message {
+  font-size: 2em;
+  font-family: 'Oswald', sans-serif;
+}
+.action-container {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;  
+  margin: 40px 0;
+}
+
+.Action {
   border: 2px solid black;
   padding: 5px 0px;
-  width: 200px;
+  width: 150px;
   margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 30px;
+  border-radius: 15px;
   transition: all 0.3s ease-in-out;
   cursor: pointer;
+  color: black;
+  text-decoration: none;
 }
 
-.Functionality:hover {
-  background: rgb(36, 171, 216);
+.Action:hover {
+  background:rgb(158, 231, 255);
 }
 
-.functionality-img {
+.action-img {
   width: 50px;
   margin-right: 10px;
 }
 
 
-.functionality-name {
+.action-name {
   font-family: 'Oswald', sans-serif;
-  font-size: 1.5em;
+  font-size: 1em;
 }
 
 
-.form {
+.form,
+.TransactionDetailPage {
   background: rgb(255, 255, 255);
   display: flex;
   flex-direction: column;
@@ -120,17 +171,17 @@
   align-items: center;
   gap: 10px;
   width: 500px;
-  /* height: 100px; */
-  margin: 20px auto;
   padding: 50px;
   border-radius: 10px;
-  border: 1px solid black;
   box-shadow: 5px 5px 10px #888888 ;
+}
+
+.TransactionDetailPage {
+  align-items: flex-start;
 }
 
 .form-item {
   font-family: 'Oswald', sans-serif;
-
   border-radius: 10px;
   width: 300px;
   height: 30px; 
@@ -158,18 +209,36 @@
   background: rgb(120, 237, 120);
 }
 
-.page-name, 
-.receiver-name {
+.page-name {
   font-family: 'Oswald', sans-serif;
+  border-bottom: 1px solid black;
+  padding-bottom: 5px;
   font-size: 1.2em;
 }
 
-.receiver-name {
+.bold-text {
+  font-family: 'Oswald', sans-serif;
+}
+
+.normal-text {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+
+}
+
+.receiver-name-correct {
   /* width: 200px; */
   text-align: left;
   background: rgb(164, 252, 202);
   /* background: rgb(254, 120, 120); */
   color: rgba(0, 0, 0, 0.5)
+}
+
+.receiver-name-wrong {
+  /* width: 200px; */
+  text-align: left;
+  background: rgb(224, 14, 38);
+  /* background: rgb(254, 120, 120); */
+  color: rgb(255, 255, 255)
 }
 
 .username-password-login,
@@ -182,13 +251,188 @@
   border: 2px solid black;
   align-items: center;
   transition: all 0.3s ease-in-out;
+  cursor: pointer;
 }
 
 .oauth2-login:hover {
   background:rgb(158, 231, 255);
 }
+
 .oauth2-icon {
-  margin: 0 20px;
+  margin: 0 35px;
   height: 20px;
 }
 
+
+.greeting-message {
+  font-family: 'Oswald', sans-serif;
+  font-size: 3em;
+}
+
+.nav-link {
+  font-family: 'Oswald', sans-serif;
+  display: block;
+  border: 2px solid black;
+  /* background:rgb(86, 182, 255); */
+  color: black;
+  margin: 20px auto;
+  padding: 10px;
+  width: 200px;
+  border-radius: 10px;
+  text-decoration: inherit;
+}
+
+.nav-link:hover {
+  background:rgb(158, 231, 255);  
+}
+
+.Homepage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.UserInfo {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.user-img {
+  width: 125px;
+  border-radius: 50%;
+}
+
+.user-name {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 1.2em; 
+}
+
+.user-accountNo {
+  margin: 10px 0; 
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.Transaction {
+  border-bottom: 1px solid black;
+  display: grid;
+  grid-template-columns: 15% 10% 10% 30% 35%;
+  width: 600px;
+  line-height: 30px;
+  padding: 10px;
+  margin: 5px 0px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.Transaction:hover {
+  background: rgb(225, 225, 225);
+}
+.transaction-container {
+  padding: 30px 50px;
+  border-radius: 20px;
+  margin: 20px;
+  box-shadow: 3px 3px 10px black;
+}
+
+.transaction-type-in {
+  color: rgb(0, 173, 0);
+  font-family: 'Oswald', sans-serif;
+}
+
+.transaction-type-out {
+  color: rgb(255, 33, 33);
+  font-family: 'Oswald', sans-serif;
+}
+
+.transaction-date {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+.transaction-amount {
+  display: flex;
+  font-family: 'Oswald', sans-serif;
+  align-items: center;
+}
+
+.transaction-amount .coin-icon{
+  width: 20px;
+  margin-right: 5px;
+}
+
+.transaction-info,
+.transaction-message {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.transaction-accountName {
+  font-family: 'Oswald', sans-serif;
+}
+
+
+.link {
+  text-decoration: none;
+  display: block;
+  color: black;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 10;
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #FFF;
+  z-index: 10;
+  border-radius: 20px;
+}
+
+.close-btn {
+  background: rgb(252, 101, 101);
+  padding: 10px 15px;
+  color: white;
+  border: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  border-top-right-radius: 10px;
+}
+
+.close-btn:hover {
+  background: red;
+}
+
+.pagination-btn {
+  display: flex;
+  width: fit-content;
+  margin: 30px auto;
+  list-style: none;
+}
+
+.pagination-btn li a {
+  padding: 10px; 
+}
+
+.pagination-btn li {
+  margin: 10px 5px;
+  padding: 5px; 
+  border-radius: 15px;
+  border: 1px solid black;
+  cursor: pointer;
+
+  
+}
+.item-active {
+  background: rgb(121, 188, 255);
+}

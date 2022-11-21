@@ -1,34 +1,161 @@
 
+import { useEffect, useState, useContext } from 'react'
+import { useGoogleLogin } from '@react-oauth/google';
+import { Link } from 'react-router-dom'
+import { UserContext } from '../components/UserContext';
+import Modal from '../components/Modal';
+import { ModalContext } from '../components/ModalContext';
+import { useNavigate } from "react-router-dom";
+import Message from "./Message";
+
+import AlreadyLoggedInMessage from '../components/AlreadyLoggedInMessage';
+import axios from 'axios'
+
 export default function LoginPage() {
+    const BACKEND_URL = 'http://localhost:8080'
+    const navigate = useNavigate();
+    const [user, setUser, jwtToken, setJwtToken] = useContext(UserContext)
+    const [message, setMessage] = useState("")
+    const [success, setSuccess] = useState(false)
+    const [showMessage, setShowMessage] = useState(false)
+
+    function LoginForm() {
+        function UsernamPasswordLogin() {
+
+            const [username, setUsername] = useState('')
+            const [password, setPassword] = useState('')
+    
+            const validateAlLFields = () => {
+                if (!username) {
+                    setMessage("Invalid username")
+                    return false
+                }
+    
+                if (!password) {
+                    setMessage("Invalid password")
+                    return false
+                }
+    
+                return true
+            }
+    
+            const handleUsernamePasswordLogin = async () => {
+                if (!validateAlLFields()) {
+                    setShowMessage(true)
+                    return
+                }
+                const data = {
+                    username: username,
+                    password: password
+                }
+    
+    
+                const response = await axios.post(`${BACKEND_URL}/login`, data)
+                setSuccess(response.data.success)
+                setMessage(response.data.message)
+                setShowMessage(true)
+    
+    
+                if (response.data.success) {
+                    setJwtToken(response.data.jwtToken)
+                    setShowMessage(false)
+                    navigate('/')
+                }    
+    
+            }
+            return (
+                <>
+                    <div onKeyPress={(e) => {
+                        if (e.key === "Enter") {
+                            handleUsernamePasswordLogin()
+                        }
+                    }}>
+                        <input
+                            className="form-item username-password-login"
+                            type="text"
+                            placeholder="Username"
+                            onChange={(e) => setUsername(e.target.value)}
+                        />
+                        <input
+                            className="form-item username-password-login"
+                            type="password"
+                            placeholder="Password"
+                            onChange={(e) => setPassword(e.target.value)}
+                        />
+                    </div>
+    
+                    <button
+                        className="ok-btn"
+                        onClick={handleUsernamePasswordLogin}
+    
+                    >Login</button>
+                </>
+            )
+        }
+    
+        function Oauth2Login() {
+            const handleOauth2Login = useGoogleLogin({
+                onSuccess: async (tokenResponse) => {
+                    console.log(tokenResponse);
+                    const response = await axios.post(`${BACKEND_URL}/oauthlogin`, {
+                        accessToken: tokenResponse.access_token
+                    })
+    
+                    setJwtToken(response.data.jwtToken)
+                    navigate('/')
+                }
+            });
+    
+            return (
+                <div>
+                    <div
+                        className="form-item oauth2-login"
+                        onClick={handleOauth2Login}
+                    >
+                        <img className="oauth2-icon" src="https://cdn.iconscout.com/icon/free/png-256/google-160-189824.png" alt="" />
+                        <p >Login with Google</p>
+                    </div >
+                    <Link
+                        className="form-item oauth2-login link"
+                        to='/register'
+                    >
+                        <p>Register new account</p>
+                    </Link >
+    
+                </div>
+            )
+        }
+        return (
+            <div className="LoginPage form" >
+
+                <p className='page-name'>Login</p>
+
+                <UsernamPasswordLogin />
+                <Oauth2Login />
+            </div>
+
+        )
+    }
+
+    console.log("user is authenticated: ", user.isAuthenticated);
     return (
-        <div className="LoginPage form">
-            <p className='page-name'>Login</p>
-            <div>
-                <input 
-                    className="form-item username-password-login" 
-                    type="text" 
-                    placeholder="Username"
-                />
-                <input 
-                    className="form-item username-password-login" 
-                    type="text" 
-                    placeholder="Password"
-                />
-            </div>
-            <button className="ok-btn">Login</button>
+        !user.isAuthenticated ?
+        <>
+                <LoginForm />
+                    <Modal
+                        child={
+                            <Message
+                                success={success}
+                                message={message}
+                            />
+                        }
+                        openModal={showMessage}
+                        setOpenModal={setShowMessage}
+                    />
+        </>
 
+            :
+            <AlreadyLoggedInMessage />
 
-            <div>
-                <div className="form-item oauth2-login">
-                    <img className="oauth2-icon" src="https://cdn.iconscout.com/icon/free/png-256/google-160-189824.png" alt="" />
-                    <p>Login with Google</p>
-                </div>
-                
-                <div className="form-item oauth2-login">
-                    <img className="oauth2-icon" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Facebook_f_logo_%282019%29.svg/2048px-Facebook_f_logo_%282019%29.svg.png" alt="" />
-                    <p>Login with Facebook</p>
-                </div>
-            </div>
-        </div>
     )
 }
