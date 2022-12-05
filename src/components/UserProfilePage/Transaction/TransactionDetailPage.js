@@ -13,9 +13,11 @@ export default function TransactionDetailPage(props) {
             <p className='normal-text'><span className='bold-text'>Date: </span>{props.date}</p>
             {
                 (transactionType === "IN" || transactionType === "OUT") &&
-                <p className='normal-text'><span className='bold-text'>{senderOrRecipient} account no: </span>{props.accountNo}</p> &&
-                <p className='normal-text'><span className='bold-text'>{senderOrRecipient} name: </span>{props.accountName}</p>
-
+                <p className='normal-text'><span className='bold-text'>{senderOrRecipient} account no: </span>{props.accountNo}</p> 
+            }
+            {
+                (transactionType === "IN" || transactionType === "OUT") &&
+                <p className='normal-text'><span className='bold-text'>{senderOrRecipient} name: </span>{props.accountName}</p> 
             }
             <p className='normal-text'><span className='bold-text'>Amount: </span>{props.amount}</p>
             <p className='normal-text'><span className='bold-text'>Message: </span>{props.message}</p>
