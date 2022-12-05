@@ -5,11 +5,11 @@ import "../style.css"
 
 export default function Transaction(props) {
     const [openModal, setOpenModal] = useState(false)
-
+    let transactionType = props.transactionType.toString()
     let transationTypeStyleName = "transaction-type-out"
     let toOrFrom = "To"
 
-    if (props.transactionType.toString() === "IN") {
+    if (transactionType === "IN" || transactionType === "DEPOSIT") {
         transationTypeStyleName = "transaction-type-in"
         toOrFrom = "From"
     }
@@ -21,7 +21,7 @@ export default function Transaction(props) {
     const TransactionDetail = () => {
         return (
             <TransactionDetailPage 
-                    transactionType={props.transactionType}
+                    transactionType={transactionType}
                     transationTypeStyleName={transationTypeStyleName}
                     amount={props.amount}
                     accountNo={props.accountNo}
@@ -37,7 +37,10 @@ export default function Transaction(props) {
                 <p className='transaction-date'>{shortDate}</p>
                 <p className={transationTypeStyleName}>{props.transactionType}</p>
                 <p className={`transaction-amount`}><img className='coin-icon' src="https://cdn-icons-png.flaticon.com/512/217/217853.png" alt="" />{props.amount}</p>
-                <p className='transaction-info'>{`${toOrFrom} ${props.accountNo}`}</p>
+                {
+                    (transactionType === "IN" || transactionType === "OUT") &&
+                    <p className='transaction-info'>{`${toOrFrom} ${props.accountNo}`}</p>
+                }
                 {/* <p className="transaction-accountName">{props.accountName}</p> */}
                 <p className='transaction-message'>{shortMessage}</p>
             </div>
