@@ -38,7 +38,7 @@
 .Transaction {
   border-bottom: 1px solid black;
   display: grid;
-  grid-template-columns: 15% 15% 20% 25% 25%;
+  grid-template-columns: 10% 15% 20% 30% 25%;
   width: 600px;
   line-height: 30px;
   padding: 10px;

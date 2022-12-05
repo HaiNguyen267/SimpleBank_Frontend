@@ -15,8 +15,8 @@ export default function Transaction(props) {
     }
 
     const shortDate = props.date.toString().slice(0, 5)
-    const shortMessage = props.message.toString().length > 25 ? 
-                            props.message.toString().slice(0, 25) + "..." : props.message.toString()
+    const shortMessage = props.message.toString().length > 15 ? 
+                            props.message.toString().slice(0, 15) + "..." : props.message.toString()
 
     const TransactionDetail = () => {
         return (
@@ -38,9 +38,11 @@ export default function Transaction(props) {
                 <p className={transationTypeStyleName}>{props.transactionType}</p>
                 <p className={`transaction-amount`}><img className='coin-icon' src="https://cdn-icons-png.flaticon.com/512/217/217853.png" alt="" />{props.amount}</p>
                 {
-                    (transactionType === "IN" || transactionType === "OUT") &&
-                    <p className='transaction-info'>{`${toOrFrom} ${props.accountNo}`}</p>
+                    (transactionType === "IN" || transactionType === "OUT") ?
+                    <p className='transaction-info'>{`${toOrFrom} ${props.accountNo}`}</p> :
+                    <p>{transactionType.toLowerCase()}</p>
                 }
+                
                 {/* <p className="transaction-accountName">{props.accountName}</p> */}
                 <p className='transaction-message'>{shortMessage}</p>
             </div>
