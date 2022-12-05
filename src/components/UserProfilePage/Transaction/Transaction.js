@@ -1,6 +1,7 @@
-import TransactionDetailPage from "../pages/TransactionDetailPage"
-import Modal from "../components/Modal"
+import TransactionDetailPage from "./TransactionDetailPage"
+import Modal from "../../shared-components/Modal"
 import { useState } from 'react'
+import "../style.css"
 
 export default function Transaction(props) {
     const [openModal, setOpenModal] = useState(false)

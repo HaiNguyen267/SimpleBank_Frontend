@@ -1,8 +1,11 @@
 
-import Modal from './Modal'
-import Message from '../pages/Message'
+import Modal from '../shared-components/Modal'
+import Message from '../shared-components/Message'
 import { useState } from 'react'
 import { MessageContext } from '../context/MessageContext'
+import './style.css'
+
+
 function Action(props) {
     const [openModal, setOpenModal] = useState(false)
     const [message, setMessage] = useState("")

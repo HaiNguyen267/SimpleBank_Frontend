@@ -1,6 +1,8 @@
 import { useContext, useState } from "react"
-import { UserContext } from "./UserContext"
-import Dropdown from "../components/Dropdown"
+import { UserContext } from '../context/UserContext'
+import Dropdown from "./Dropdown"
+import './style.css'
+
 function Profile() {
     const [user, setUser] = useContext(UserContext)
     const [displaySubMenu, setDisplaySubMenu] = useState(false)

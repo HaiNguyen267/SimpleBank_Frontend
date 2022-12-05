@@ -1,6 +1,8 @@
 import {  useContext } from "react"
 import { Link, useNavigate } from "react-router-dom"
-import { UserContext } from './UserContext'
+import { UserContext } from '../context/UserContext'
+import './style.css'
+
 export default function Dropdown(props) {
     const navigate = useNavigate()
     const [user, setUser, jwtToken, setJwtToken] = useContext(UserContext)

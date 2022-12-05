@@ -1,10 +1,10 @@
 import { useContext, useState } from "react"
-import { UserContext } from "../components/UserContext"
+import { UserContext } from '../context/UserContext';
 
-import AlreadyLoggedInMessage from "../components/AlreadyLoggedInMessage"
+import AlreadyLoggedInMessage from "../shared-components/AlreadyLoggedInMessage"
 import axios from "axios"
-import Modal from "../components/Modal"
-import Message from "./Message";
+import Modal from "../shared-components/Modal"
+import Message from "../shared-components/Message";
 import { useNavigate } from 'react-router-dom'
 
 function RegisterForm() {
@@ -134,6 +134,7 @@ function RegisterForm() {
             />
         )
     }
+
     return (
             <>
             <Form />

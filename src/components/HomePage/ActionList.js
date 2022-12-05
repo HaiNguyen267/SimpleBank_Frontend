@@ -1,9 +1,10 @@
 import Action from './Action';
-import DepositPage from '../pages/DepositPage';
-import WithdrawPage from '../pages/WithdrawPage';
-import TransferPage from '../pages/TransferPage';
+import DepositPage from './DepositPage';
+import WithdrawPage from './WithdrawPage';
+import TransferPage from './TransferPage';
+import './style.css'
 
-function ActionList() {
+export default function ActionList() {
 
     return (
         <div className='ActionList'>
@@ -33,4 +34,3 @@ function ActionList() {
     )
 }
 
-export default ActionList

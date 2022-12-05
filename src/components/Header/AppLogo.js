@@ -1,4 +1,6 @@
 import { Link } from 'react-router-dom'
+import './style.css'
+
 function AppLogo() {
     return (
         <div className="AppLogo">

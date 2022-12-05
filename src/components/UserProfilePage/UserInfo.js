@@ -1,4 +1,6 @@
-import Balance from './Balance'
+import Balance from '../shared-components/Balance'
+import "./style.css"
+
 export default function UserInfo(props) {
     return (
         <div className="UserInfo">

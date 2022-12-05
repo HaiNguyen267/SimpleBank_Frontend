@@ -1,6 +1,6 @@
+import "../style.css"
 
 export default function TransactionDetailPage(props) {
-    console.log("hihi");
     let senderOrRecipient = "Recipent"
     if (props.transactionType.toString() === "IN") {
         senderOrRecipient = "Sender"

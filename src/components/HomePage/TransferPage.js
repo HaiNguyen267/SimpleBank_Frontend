@@ -1,8 +1,9 @@
-import { ModalContext } from '../components/ModalContext';
-import { UserContext } from '../components/UserContext';
+import { ModalContext } from '../context/ModalContext';
+import { UserContext } from '../context/UserContext';
 import { MessageContext } from '../context/MessageContext'
 import { useState, useContext } from 'react';
 import axios from 'axios';
+import './style.css'
 
 export default function TransferPage() {
     const [openModal, setOpenModal] = useContext(ModalContext)

@@ -1,9 +1,10 @@
 import { useContext } from 'react'
-import { UserContext } from '../components/UserContext'
-import Balance from '../components/Balance'
-import PromtLogin from '../components/PromtLogin'
-import ActionList from '../components/ActionList'
-import RegistrationConfirmPage from './RegistrationConfirmPage'
+import { UserContext } from '../context/UserContext'
+import Balance from '../shared-components/Balance'
+import PromtLogin from '../shared-components/PromtLogin'
+import ActionList from './ActionList'
+import RegistrationConfirmPage from '../shared-components/RegistrationConfirmPage'
+import './style.css'
 
 export default function Homepage() {
 

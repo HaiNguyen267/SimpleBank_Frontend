@@ -2,13 +2,14 @@
 import { useState, useContext } from 'react'
 import { useGoogleLogin } from '@react-oauth/google';
 import { Link } from 'react-router-dom'
-import { UserContext } from '../components/UserContext';
-import Modal from '../components/Modal';
+import { UserContext } from '../context/UserContext';
+import Modal from '../shared-components/Modal';
 import { useNavigate } from "react-router-dom";
-import Message from "./Message";
+import Message from "../shared-components/Message";
 
-import AlreadyLoggedInMessage from '../components/AlreadyLoggedInMessage';
+import AlreadyLoggedInMessage from '../shared-components/AlreadyLoggedInMessage';
 import axios from 'axios'
+import "./style.css"
 
 export default function LoginPage() {
     const BACKEND_URL = 'https://simplebankbackend-production.up.railway.app'

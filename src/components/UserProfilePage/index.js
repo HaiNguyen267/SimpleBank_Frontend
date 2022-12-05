@@ -1,10 +1,10 @@
 import { useContext, useEffect, useState } from "react"
-import { UserContext } from '../components/UserContext'
-import UserInfo from "../components/UserInfo"
-import PromtLogin from "../components/PromtLogin"
+import { UserContext } from '../context/UserContext'
+import UserInfo from "./UserInfo"
+import PromtLogin from "../shared-components/PromtLogin"
 import { useNavigate } from 'react-router-dom'
 import axios from "axios"
-import PaginationItems from "./PaginattionItems"
+import PaginationItems from "./Transaction/PaginattionItems"
 export default function UserProfilePage() {
     const navigate = useNavigate()
     const [user, setUser, jwtToken, setJwtToken] = useContext(UserContext)

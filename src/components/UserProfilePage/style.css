@@ -1,0 +1,119 @@
+.receiver-name-correct {
+  /* : 200px; */
+  text-align: left;
+  background: rgb(164, 252, 202);
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.receiver-name-wrong {
+  /* width: 200px; */
+  text-align: left;
+  background: rgb(224, 14, 38);
+  /* background: rgb(254, 120, 120); */
+  color: rgb(255, 255, 255);
+}
+
+.UserInfo {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.user-img {
+  width: 125px;
+  border-radius: 50%;
+}
+
+.user-name {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 1.2em;
+}
+
+.user-accountNo {
+  margin: 10px 0;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.Transaction {
+  border-bottom: 1px solid black;
+  display: grid;
+  grid-template-columns: 15% 10% 10% 30% 35%;
+  width: 600px;
+  line-height: 30px;
+  padding: 10px;
+  margin: 5px 0px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.Transaction:hover {
+  background: rgb(225, 225, 225);
+}
+.transaction-container {
+  padding: 30px 50px;
+  border-radius: 20px;
+  margin: 20px;
+  box-shadow: 3px 3px 10px black;
+}
+
+.transaction-type-in {
+  color: rgb(0, 173, 0);
+  font-family: "Oswald", sans-serif;
+}
+
+.transaction-type-out {
+  color: rgb(255, 33, 33);
+  font-family: "Oswald", sans-serif;
+}
+
+.transaction-date {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+.transaction-amount {
+  display: flex;
+  font-family: "Oswald", sans-serif;
+  align-items: center;
+}
+
+.transaction-amount .coin-icon {
+  width: 20px;
+  margin-right: 5px;
+}
+
+.transaction-info,
+.transaction-message {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.transaction-accountName {
+  font-family: "Oswald", sans-serif;
+}
+
+
+.TransactionDetailPage {
+    align-items: flex-start;
+  }
+
+
+.pagination-btn {
+    display: flex;
+    width: fit-content;
+    margin: 30px auto;
+    list-style: none;
+  }
+  
+  .pagination-btn li a {
+    padding: 10px;
+  }
+  
+  .pagination-btn li {
+    margin: 10px 5px;
+    padding: 5px;
+    border-radius: 15px;
+    border: 1px solid black;
+    cursor: pointer;
+  }
+  .item-active {
+    background: rgb(121, 188, 255);
+  }

@@ -1,5 +1,5 @@
 import ReactDOM from 'react-dom';
-import { ModalContext } from './ModalContext';
+import { ModalContext } from '../context/ModalContext';
 import { useContext } from 'react';
 export default function Modal({child, openModal, setOpenModal}) {
     

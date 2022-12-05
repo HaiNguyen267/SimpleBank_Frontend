@@ -1,17 +1,17 @@
 import './App.css';
 import Header from "./components/Header"
-import LoginPage from './pages/LoginPage';
-import RegisterPage from './pages/RegisterPage';
+import LoginPage from './components/LoginPage/LoginPage';
+import RegisterPage from './components/RegiterPage';
 
-import Homepage from './pages/Homepage';
-import { UserContext } from './components/UserContext'
+import Homepage from './components/HomePage';
+import { UserContext } from './components/context/UserContext'
 import { Routes, Route, useNavigate } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import axios from 'axios';
 
 // testing
-import UserProfilePage from './pages/UserProfilePage';
-import RegistrationConfirmPage from './pages/RegistrationConfirmPage';
+import UserProfilePage from './components/UserProfilePage';
+import RegistrationConfirmPage from './components/shared-components/RegistrationConfirmPage';
 
 
 function App() {
@@ -96,6 +96,7 @@ function App() {
             <Route path='/login' element={<LoginPage />} />
             <Route path='/register' element={<RegisterPage />} />
             <Route path='/confirm' element={<RegistrationConfirmPage />} />
+            <Route path='/admin' element={<RedirectToHome />}></Route>
             <Route path='*' element={<RedirectToHome />}></Route>
           </Routes>
         </div>

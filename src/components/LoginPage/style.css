@@ -1,0 +1,25 @@
+.username-password-login,
+.oauth2-login {
+    margin: 5px 0;
+}
+
+.oauth2-login {
+    display: flex;
+    border: 2px solid black;
+    align-items: center;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.oauth2-login:hover {
+    background: rgb(158, 231, 255);
+}
+
+.oauth2-icon {
+    margin: 0 35px;
+    height: 20px;
+}
+
+.link {
+    justify-content: center;
+}

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import ReactPaginate from 'react-paginate';
-import Transaction from '../components/Transaction';
+import Transaction from './Transaction';
+import "../style.css"
 
 function Items({ currentItems }) {
     return (
@@ -28,8 +29,6 @@ export default function PaginationItems({ transactions }) {
     const pageCount = Math.ceil(transactions.length / itemsPerPage);
 
     const currentItems = transactions.slice(startIndex, endIndex)
-    console.log("currentItems: ");
-    console.log(currentItems);
     const handlePageClick = (e) => {
         const newStartIndex = (e.selected * itemsPerPage) % transactions.length;
         setStartIndex(newStartIndex)
@@ -40,7 +39,7 @@ export default function PaginationItems({ transactions }) {
             <Items
                 currentItems={currentItems}
             />
-            <ReactPaginate
+            {pageCount > 1 && <ReactPaginate
                 activeClassName={'item-active '}
                 className="pagination-btn"
                 breakLabel="..."
@@ -50,7 +49,8 @@ export default function PaginationItems({ transactions }) {
                 pageCount={pageCount}
                 previousLabel="< previous"
                 renderOnZeroPageCount={null}
-            />
+            />}
+            
         </>
     )
 }
