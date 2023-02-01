@@ -10,7 +10,7 @@ import { useNavigate } from 'react-router-dom'
 function RegisterForm() {
     const navigate = useNavigate()
     const [user] = useContext(UserContext)
-    const BACKEND_URL = 'https://simplebankbackend-production.up.railway.app'
+    const BACKEND_URL = 'https://simplebankbackend-production-7596.up.railway.app'
     const [openModal, setOpenModal] = useState(false)
     const [message, setMessage] = useState("")
     const [success, setSuccess] = useState(false)

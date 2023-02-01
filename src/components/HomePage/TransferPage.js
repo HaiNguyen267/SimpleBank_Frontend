@@ -16,7 +16,7 @@ export default function TransferPage() {
     const [receiverAccountName, setReceiverAccountName] = useState('Unknown')
     const [amount, setAmount] = useState(0)
     const [transactionMessage, setTransactionMessage] = useState('')
-    const BACKEND_URL = 'https://simplebankbackend-production.up.railway.app'
+    const BACKEND_URL = 'https://simplebankbackend-production-7596.up.railway.app'
 
     const ReceiverNameElement = () => {
         if (receiverAccountNo.length < 10) return null
@@ -46,6 +46,7 @@ export default function TransferPage() {
         setMessage(response.data.message)
         setShowMessage(true) // show popup status message
 
+        console.log(response.data);
         if (response.data.success) {
             // display the message for 500ms before re-render the whole app
             setTimeout(() => {

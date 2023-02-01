@@ -8,7 +8,7 @@ import PaginationItems from "./Transaction/PaginattionItems"
 export default function UserProfilePage() {
     const navigate = useNavigate()
     const [user, setUser, jwtToken, setJwtToken] = useContext(UserContext)
-    const BACKEND_URL = 'https://simplebankbackend-production.up.railway.app'
+    const BACKEND_URL = 'https://simplebankbackend-production-7596.up.railway.app'
 
 
     function UserPage() {

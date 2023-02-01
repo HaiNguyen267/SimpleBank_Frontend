@@ -10,7 +10,7 @@ export default function DepositPage() {
     const [user, setUser, jwtToken, setJwtToken] = useContext(UserContext)
     const [success, setSuccess, message, setMessage, showMessage, setShowMessage] = useContext(MessageContext)
     const [amount, setAmount] = useState(0)
-    const BACKEND_URL = 'https://simplebankbackend-production.up.railway.app'
+    const BACKEND_URL = 'https://simplebankbackend-production-7596.up.railway.app'
 
 
     const handleClick = async () => {

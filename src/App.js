@@ -15,7 +15,7 @@ import RegistrationConfirmPage from './components/shared-components/Registration
 
 
 function App() {
-  const BACKEND_URL = 'https://simplebankbackend-production.up.railway.app'
+  const BACKEND_URL = 'https://simplebankbackend-production-7596.up.railway.app'
   const CLIENT_ID = '1041545973974-6fhlfpt6pv44fukk40s34qh86j5pj6uk.apps.googleusercontent.com'
   const [jwtToken, setJwtToken] = useState(null)
   const navigate = useNavigate()

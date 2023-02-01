@@ -12,7 +12,7 @@ import axios from 'axios'
 import "./style.css"
 
 export default function LoginPage() {
-    const BACKEND_URL = 'https://simplebankbackend-production.up.railway.app'
+    const BACKEND_URL = 'https://simplebankbackend-production-7596.up.railway.app'
     const navigate = useNavigate();
     const [user, setUser, jwtToken, setJwtToken] = useContext(UserContext)
     const [message, setMessage] = useState("")
